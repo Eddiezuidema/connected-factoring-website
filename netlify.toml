@@ -1,0 +1,29 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[forms]
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+```
+
+4. Klik onderaan: **"Commit new file"**
+
+---
+
+### **Bestand 3: _redirects**
+
+**In GitHub:**
+1. Weer: **"Add file"** → **"Create new file"**  
+2. Naam: `_redirects`
+3. Plak dit:
+```
+/*    /index.html   200
