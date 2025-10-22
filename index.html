@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connected Factoring B.V. - Factoring voor Zorgprofessionals</title>
+    <title>Connected Factoring - Factoring voor Zorgprofessionals</title>
     <style>
         * {
             margin: 0;
@@ -46,41 +46,19 @@
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.5rem;
         }
 
         .logo-icon {
             width: 32px;
             height: 32px;
-            background: #A196FF;
+            background: #FFCF82;
             border-radius: 50%;
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .logo-icon::before {
-            content: '';
-            position: absolute;
-            width: 18px;
-            height: 18px;
-            background: #FFFFFF;
-            border-radius: 50%;
-            top: 9px;
-            left: 9px;
-        }
-
-        .logo-icon::after {
-            content: '';
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            border: 3px solid #FFFFFF;
-            border-right: 3px solid transparent;
-            border-bottom: 3px solid transparent;
-            border-radius: 50%;
-            top: 6px;
-            left: 6px;
-            transform: rotate(45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #33123D;
+            font-weight: bold;
         }
 
         .nav-links {
@@ -100,423 +78,150 @@
             opacity: 0.8;
         }
 
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #33123D 0%, #A196FF 100%);
             color: white;
             padding: 120px 0 80px;
             text-align: center;
+            margin-top: 60px;
+        }
+
+        .subtitle {
+            color: #FFCF82;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
         }
 
         .hero h1 {
-            font-size: 3.2rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 700;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero .subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            opacity: 0.9;
-            font-weight: 600;
-            color: #FFCF82;
-            animation: fadeInUp 1s ease-out 0.1s both;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        /* Trust Bar */
-        .trust-bar {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
-            border-radius: 20px;
-            margin-top: 3rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .trust-items {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .trust-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            color: #33123D;
-            min-width: 120px;
-        }
-
-        .trust-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #A196FF, #FFCF82);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: white;
-        }
-
-        .trust-logo {
-            width: 80px;
-            height: 60px;
-            background: #F8F9FA;
-            border: 2px solid #A196FF;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            font-weight: bold;
-            color: #33123D;
-            margin-bottom: 0.5rem;
-            padding: 5px;
-        }
-
-        .trust-label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #33123D;
-        }
-
-        .trust-sublabel {
-            font-size: 0.75rem;
-            color: #666;
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
         }
 
         .cta-button {
+            display: inline-block;
             background: #FFCF82;
             color: #33123D;
-            padding: 16px 32px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
+            padding: 1rem 2.5rem;
             text-decoration: none;
-            display: inline-block;
-            animation: fadeInUp 1s ease-out 0.4s both;
-            margin: 0.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(255, 207, 130, 0.4);
         }
 
         .cta-button:hover {
-            background: #FFD999;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 207, 130, 0.4);
-        }
-
-        .cta-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .cta-secondary:hover {
-            background: white;
-            color: #33123D;
-        }
-
-        /* Quickscan Section */
-        .quickscan {
-            background: #FFCF82;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .quickscan h2 {
-            color: #33123D;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .quickscan-form {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            max-width: 800px;
-            margin: 2rem auto;
-            box-shadow: 0 10px 30px rgba(51, 18, 61, 0.1);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #33123D;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #A196FF;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #FFCF82;
-        }
-
-        /* Pricing Section */
-        .pricing {
-            padding: 80px 0;
-            background: #A196FF;
-            color: white;
-            text-align: center;
-        }
-
-        .pricing h2 {
-            font-size: 2.8rem;
-            margin-bottom: 3rem;
-        }
-
-        .pricing-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .pricing-card {
-            background: white;
-            color: #33123D;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(51, 18, 61, 0.1);
-        }
-
-        .pricing-card.featured {
-            transform: scale(1.05);
-            border: 3px solid #FFCF82;
-        }
-
-        .pricing-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #33123D;
-        }
-
-        .price {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #A196FF;
-            margin-bottom: 1rem;
-        }
-
-        .price-note {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 2rem;
-        }
-
-        .features-list {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 2rem;
-        }
-
-        .features-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .features-list li:before {
-            content: "✓";
-            color: #A196FF;
-            font-weight: bold;
-            margin-right: 0.5rem;
+            box-shadow: 0 8px 25px rgba(255, 207, 130, 0.6);
         }
 
         /* Features Section */
         .features {
-            padding: 80px 0;
-            background: #FFFFFF;
+            padding: 5rem 0;
         }
 
         .features h2 {
             text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            color: #33123D;
-            font-weight: 700;
-        }
-
-        .features .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
+            font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: #A196FF;
-            font-weight: 600;
+            color: #33123D;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .feature-card {
             background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(161, 150, 255, 0.15);
-            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(51, 18, 61, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
-            border: 2px solid transparent;
         }
 
         .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(161, 150, 255, 0.25);
-            border-color: #FFCF82;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(51, 18, 61, 0.15);
         }
 
         .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #A196FF, #FFCF82);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 1.5rem;
-            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
         .feature-card h3 {
             color: #33123D;
             margin-bottom: 1rem;
             font-size: 1.4rem;
-            font-weight: 600;
-        }
-
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Reviews Section */
-        .reviews {
-            padding: 80px 0;
-            background: #F8F9FA;
-        }
-
-        .reviews h2 {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 3rem;
-            color: #33123D;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .review-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(51, 18, 61, 0.1);
-        }
-
-        .review-stars {
-            color: #FFCF82;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .review-text {
-            font-style: italic;
-            margin-bottom: 1rem;
-            color: #666;
-        }
-
-        .review-author {
-            font-weight: 600;
-            color: #33123D;
-        }
-
-        .review-company {
-            color: #A196FF;
-            font-size: 0.9rem;
         }
 
         /* Process Section */
         .process {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #A196FF 0%, #FFCF82 100%);
+            background: #F8F7FF;
+            padding: 5rem 0;
         }
 
         .process h2 {
             text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            color: #33123D;
-            font-weight: 700;
-        }
-
-        .process .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
+            font-size: 2.5rem;
             margin-bottom: 3rem;
             color: #33123D;
-            font-weight: 600;
         }
 
         .process-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
 
         .step {
             text-align: center;
-            background: white;
             padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(51, 18, 61, 0.1);
-            position: relative;
         }
 
         .step-number {
-            background: #33123D;
-            color: #FFCF82;
+            background: #A196FF;
+            color: white;
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -525,92 +230,19 @@
             justify-content: center;
             font-size: 1.5rem;
             font-weight: bold;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1rem;
         }
 
         .step h3 {
             color: #33123D;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .step p {
-            color: #666;
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .faq h2 {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 3rem;
-            color: #33123D;
-        }
-
-        .faq-grid {
-            display: grid;
-            gap: 1rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            border: 2px solid #A196FF;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            background: #A196FF;
-            color: white;
-            padding: 1.5rem;
-            cursor: pointer;
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faq-question:hover {
-            background: #8A7EEE;
-        }
-
-        .faq-answer {
-            padding: 1.5rem;
-            background: white;
-            display: none;
-        }
-
-        .faq-answer.active {
-            display: block;
-        }
-
-        .faq-toggle {
-            font-size: 1.2rem;
-            transition: transform 0.3s;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(45deg);
+            margin-bottom: 0.5rem;
         }
 
         /* Stats Section */
         .stats {
-            background: #33123D;
+            background: linear-gradient(135deg, #33123D 0%, #A196FF 100%);
             color: white;
-            padding: 80px 0;
-        }
-
-        .stats h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #FFCF82;
-            font-weight: 700;
+            padding: 4rem 0;
         }
 
         .stats-grid {
@@ -621,211 +253,118 @@
         }
 
         .stat-item h3 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
             color: #FFCF82;
-            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
 
-        .stat-item p {
-            opacity: 0.9;
-            font-size: 1.1rem;
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
         }
 
-        /* Requirements Section */
-        .requirements {
-            padding: 80px 0;
-            background: #F8F9FA;
-        }
-
-        .requirements h2 {
+        .contact h2 {
             text-align: center;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 3rem;
             color: #33123D;
         }
 
-        .requirements-grid {
+        .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .requirement-card {
-            background: white;
+        .contact-info {
+            background: #F8F7FF;
             padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(51, 18, 61, 0.1);
-            text-align: center;
+            border-radius: 15px;
         }
 
-        .requirement-icon {
-            width: 60px;
-            height: 60px;
-            background: #A196FF;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin: 0 auto 1rem;
-            color: white;
+        .contact-info h3 {
+            color: #33123D;
+            margin-bottom: 1.5rem;
         }
 
-        /* CTA Section */
-        .cta-section {
-            background: #A196FF;
-            padding: 80px 0;
-            text-align: center;
+        .contact-item {
+            margin-bottom: 1.5rem;
         }
 
-        .cta-section h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            color: white;
-            font-weight: 700;
+        .contact-item strong {
+            color: #33123D;
+            display: block;
+            margin-bottom: 0.5rem;
         }
 
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: white;
-            opacity: 0.9;
+        .contact-item a {
+            color: #A196FF;
+            text-decoration: none;
         }
 
-        /* Contact Form */
         .contact-form {
             background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(51, 18, 61, 0.15);
-            max-width: 600px;
-            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(51, 18, 61, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #33123D;
+            font-weight: 600;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #E5E3F0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #A196FF;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        button[type="submit"] {
+            background: #A196FF;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background: #33123D;
+            transform: translateY(-2px);
         }
 
         /* Footer */
         footer {
             background: #33123D;
             color: white;
-            padding: 60px 0 40px;
-        }
-
-        /* Legal Pages Styling */
-        .legal-section {
-            padding: 120px 0 80px;
-            background: white;
-        }
-
-        .legal-content {
-            max-width: 900px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        .legal-content h1 {
-            color: #33123D;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 3px solid #FFCF82;
-        }
-
-        .legal-content h2 {
-            color: #33123D;
-            font-size: 1.8rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .legal-content h3 {
-            color: #A196FF;
-            font-size: 1.4rem;
-            margin-top: 1.5rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .legal-content h4 {
-            color: #33123D;
-            font-size: 1.1rem;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .legal-content p {
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .legal-content ul, .legal-content ol {
-            margin-bottom: 1rem;
-            padding-left: 2rem;
-        }
-
-        .legal-content li {
-            margin-bottom: 0.5rem;
-        }
-
-        .legal-content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-        }
-
-        .legal-content table th,
-        .legal-content table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
-        .legal-content table th {
-            background: #A196FF;
-            color: white;
-            font-weight: 600;
-        }
-
-        .legal-content table tr:nth-child(even) {
-            background: #f8f9fa;
-        }
-
-        .legal-content strong {
-            color: #33123D;
-        }
-
-        .legal-content a {
-            color: #A196FF;
-            text-decoration: underline;
-        }
-
-        .legal-content a:hover {
-            color: #FFCF82;
-        }
-
-        .legal-back {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: #A196FF;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .legal-back:hover {
-            color: #FFCF82;
-        }
-
-        .legal-highlight {
-            background: #F8F9FA;
-            padding: 1.5rem;
-            border-left: 4px solid #FFCF82;
-            margin: 1.5rem 0;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .show {
-            display: block;
+            padding: 3rem 0 1rem;
         }
 
         .footer-content {
@@ -836,15 +375,15 @@
         }
 
         .footer-section h3 {
-            margin-bottom: 1rem;
             color: #FFCF82;
-            font-weight: 600;
+            margin-bottom: 1rem;
         }
 
         .footer-section p, .footer-section a {
-            color: #A196FF;
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            line-height: 1.6;
+            display: block;
+            margin-bottom: 0.5rem;
         }
 
         .footer-section a:hover {
@@ -852,156 +391,50 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid #A196FF;
-            padding-top: 2rem;
             text-align: center;
-            color: #A196FF;
-        }
-
-        /* Chat Widget */
-        .chat-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #FFCF82;
-            color: #33123D;
-            padding: 15px 20px;
-            border-radius: 50px;
-            box-shadow: 0 5px 20px rgba(51, 18, 61, 0.3);
-            cursor: pointer;
-            font-weight: 600;
-            z-index: 1000;
-            transition: all 0.3s;
-        }
-
-        .chat-widget:hover {
-            background: #FFD999;
-            transform: translateY(-2px);
-        }
-
-        /* Cookie Banner */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #33123D;
-            color: white;
-            padding: 20px;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
-            z-index: 10000;
-            display: none;
-        }
-
-        .cookie-banner.show {
-            display: block;
-        }
-
-        .cookie-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .cookie-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .cookie-text a {
-            color: #FFCF82;
-            text-decoration: underline;
-        }
-
-        .cookie-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .cookie-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .cookie-accept {
-            background: #FFCF82;
-            color: #33123D;
-        }
-
-        .cookie-accept:hover {
-            background: #FFD999;
-        }
-
-        .cookie-decline {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .cookie-decline:hover {
-            background: white;
-            color: #33123D;
-        }
-
-        .cookie-settings {
-            background: #A196FF;
-            color: white;
-        }
-
-        .cookie-settings:hover {
-            background: #8A7EEE;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
         }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .features h2, .process h2, .cta-section h2 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
 
-            .features-grid, .process-steps {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 60px;
+                flex-direction: column;
+                background: #33123D;
+                width: 100%;
+                text-align: center;
+                transition: left 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+                gap: 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .contact-grid {
                 grid-template-columns: 1fr;
             }
 
-            .contact-form, .quickscan-form {
-                margin: 2rem 1rem;
-                padding: 2rem;
-            }
-
-            .pricing-card.featured {
-                transform: none;
+            .features h2, .process h2, .contact h2 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -1010,15 +443,18 @@
     <header>
         <nav class="container">
             <div class="logo">
-                <div class="logo-icon"></div>
-                Connected Factoring B.V.
+                <div class="logo-icon">C</div>
+                Connected Factoring
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#quickscan">Quickscan</a></li>
-                <li><a href="#tarieven">Tarieven</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="#voordelen">Voordelen</a></li>
                 <li><a href="#proces">Proces</a></li>
-                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -1027,228 +463,45 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="subtitle">Connected Factoring B.V.</div>
-            <h1>Factoring voor zorgprofessionals</h1>
-            <p>Binnen 24 uur uw facturen uitbetaald. Meer zekerheid, minder zorgen.</p>
-            <a href="#quickscan" class="cta-button">Gratis Quickscan</a>
-            <a href="#contact" class="cta-button cta-secondary">Direct Offerte</a>
-            
-            <div class="trust-bar">
-                <div class="trust-items">
-                    <div class="trust-item">
-                        <div class="trust-icon">🔒</div>
-                        <div class="trust-label">Veilig & Betrouwbaar</div>
-                        <div class="trust-sublabel">SSL Beveiligd</div>
-                    </div>
-                    <div class="trust-item">
-                        <div class="trust-logo">KIFID<br>LOGO</div>
-                        <div class="trust-label">Kifid Aangesloten</div>
-                        <div class="trust-sublabel">Erkende geschilleninstantie</div>
-                    </div>
-                    <div class="trust-item">
-                        <div class="trust-icon">✓</div>
-                        <div class="trust-label">KvK Geregistreerd</div>
-                        <div class="trust-sublabel">97538590</div>
-                    </div>
-                    <div class="trust-item">
-                        <div class="trust-icon">⭐</div>
-                        <div class="trust-label">Bewezen Track Record</div>
-                        <div class="trust-sublabel">Sinds 2024</div>
-                    </div>
-                    <div class="trust-item">
-                        <div class="trust-icon">🏥</div>
-                        <div class="trust-label">Zorg Specialist</div>
-                        <div class="trust-sublabel">Team Connected</div>
-                    </div>
-                </div>
-            </div>
+            <h1>FACTORING VOOR ZORGPROFESSIONALS</h1>
+            <p>Binnen 24 uur uw facturen uitbetaald. Persoonlijk en meedenkend.</p>
+            <a href="#contact" class="cta-button">Direct Contact</a>
         </div>
     </section>
 
-    <section id="quickscan" class="quickscan">
+    <section id="voordelen" class="features">
         <div class="container">
-            <h2>Quickscan: past factoring bij u?</h2>
-            <p>Ontdek binnen 2 minuten of factoring een geschikte oplossing is voor uw praktijk</p>
-            
-            <div class="quickscan-form">
-                <form id="quickscanForm" name="quickscan" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value="quickscan">
-                    <p style="display: none;">
-                        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-                    </p>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="omzet">Maandelijkse omzet</label>
-                            <select id="omzet" name="omzet" required>
-                                <option value="">Selecteer...</option>
-                                <option value="5k-15k">€5.000 - €15.000</option>
-                                <option value="15k-30k">€15.000 - €30.000</option>
-                                <option value="30k-50k">€30.000 - €50.000</option>
-                                <option value="50k+">€50.000+</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="klanttype">Type klanten</label>
-                            <select id="klanttype" name="klanttype" required>
-                                <option value="">Selecteer...</option>
-                                <option value="ziekenhuizen">Ziekenhuizen</option>
-                                <option value="zorginstellingen">Zorginstellingen</option>
-                                <option value="ggz">GGZ instellingen</option>
-                                <option value="gemeenten">Gemeenten</option>
-                                <option value="verzekeraars">Zorgverzekeraars</option>
-                                <option value="overig">Overig zakelijk</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="betalingstermijn">Gemiddelde betalingstermijn</label>
-                            <select id="betalingstermijn" name="betalingstermijn" required>
-                                <option value="">Selecteer...</option>
-                                <option value="30">30 dagen</option>
-                                <option value="60">60 dagen</option>
-                                <option value="90">90 dagen</option>
-                                <option value="90+">Langer dan 90 dagen</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="bedrijfsvorm">Bedrijfsvorm</label>
-                            <select id="bedrijfsvorm" name="bedrijfsvorm" required>
-                                <option value="">Selecteer...</option>
-                                <option value="zzp">ZZP</option>
-                                <option value="eenmanszaak">Eenmanszaak</option>
-                                <option value="bv">B.V.</option>
-                                <option value="vof">V.O.F.</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="cta-button">Start Quickscan</button>
-                </form>
-                <div id="quickscanResult" style="display: none; margin-top: 2rem; padding: 2rem; background: #f0f8ff; border-radius: 10px;">
-                    <!-- Results will be shown here -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="trust-section" style="padding: 60px 0; background: #F8F9FA;">
-        <div class="container">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #33123D;">Waarom u kunt vertrouwen op Connected Factoring</h2>
-            
+            <h2>Waarom Connected Factoring?</h2>
             <div class="features-grid">
-                <div class="feature-card" style="text-align: left;">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 60px; height: 60px; background: #A196FF; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; flex-shrink: 0;">🏛️</div>
-                        <h3 style="margin: 0;">Officieel Geregistreerd</h3>
-                    </div>
-                    <p><strong>KvK nummer: 97538590</strong><br>
-                    Connected Factoring B.V. is officieel ingeschreven bij de Kamer van Koophandel. Wij opereren transparant en volgens alle wettelijke richtlijnen voor financiële dienstverlening.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Persoonlijk Contact</h3>
+                    <p>Wij zijn een persoonlijk bureau dat meedenkt met uw specifieke omstandigheden. Direct contact met uw vaste contactpersoon.</p>
                 </div>
-
-                <div class="feature-card" style="text-align: left;">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 60px; height: 60px; background: #FFCF82; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #33123D; font-size: 1.5rem; flex-shrink: 0;">⚖️</div>
-                        <h3 style="margin: 0;">Kifid Aangesloten</h3>
-                    </div>
-                    <p><strong>Onafhankelijke geschillenbeslechting</strong><br>
-                    Als lid van het Klachteninstituut Financiële Dienstverlening (Kifid) bieden wij een erkende klachtenregeling. U heeft altijd een onafhankelijke instantie waar u terecht kunt.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Snelle Uitbetaling</h3>
+                    <p>Binnen 24 uur na goedkeuring ontvangt u 90% van uw factuurwaarde. Optimale cashflow voor uw zorgpraktijk.</p>
                 </div>
-
-                <div class="feature-card" style="text-align: left;">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 60px; height: 60px; background: #A196FF; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; flex-shrink: 0;">🔐</div>
-                        <h3 style="margin: 0;">AVG Compliant</h3>
-                    </div>
-                    <p><strong>Uw gegevens zijn veilig</strong><br>
-                    Wij werken volledig volgens de Algemene Verordening Gegevensbescherming (AVG). Uw financiële en persoonlijke gegevens worden beveiligd opgeslagen en nooit gedeeld met derden voor marketing.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">🏥</div>
+                    <h3>Specialist in Zorg</h3>
+                    <p>Volledig gespecialiseerd in de zorg sector. We begrijpen uw uitdagingen en denken proactief mee.</p>
                 </div>
-
-                <div class="feature-card" style="text-align: left;">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 60px; height: 60px; background: #FFCF82; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #33123D; font-size: 1.5rem; flex-shrink: 0;">🤝</div>
-                        <h3 style="margin: 0;">Onderdeel Team Connected</h3>
-                    </div>
-                    <p><strong>Bewezen zorgexpertise</strong><br>
-                    Connected Factoring is onderdeel van team connected, een gevestigde naam in de zorg. Wij kennen de sector, begrijpen uw uitdagingen en hebben een bewezen track record in de zorg.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Volledige Ontzorging</h3>
+                    <p>Wij nemen het debiteuren beheer volledig uit handen. Focus op uw patiënten, wij regelen de rest.</p>
                 </div>
-
-                <div class="feature-card" style="text-align: left;">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 60px; height: 60px; background: #A196FF; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; flex-shrink: 0;">📋</div>
-                        <h3 style="margin: 0;">Transparante Voorwaarden</h3>
-                    </div>
-                    <p><strong>Geen verborgen kosten</strong><br>
-                    Onze tarieven, voorwaarden en werkwijze zijn volledig transparant. Wat u ziet is wat u krijgt - zonder verrassingen achteraf. Bekijk onze algemene voorwaarden en tarieven.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Transparante Tarieven</h3>
+                    <p>Geen verborgen kosten. Duidelijke afspraken en eerlijke prijzen die passen bij uw situatie.</p>
                 </div>
-
-                <div class="feature-card" style="text-align: left;">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 60px; height: 60px; background: #FFCF82; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #33123D; font-size: 1.5rem; flex-shrink: 0;">💼</div>
-                        <h3 style="margin: 0;">Professionele Verzekering</h3>
-                    </div>
-                    <p><strong>Volledig verzekerd</strong><br>
-                    Connected Factoring beschikt over een beroepsaansprakelijkheidsverzekering. Uw belangen zijn altijd beschermd, ook in uitzonderlijke situaties.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="stats">
-        <div class="container">
-            <h2>Factoring in cijfers</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>24u</h3>
-                    <p>Gemiddelde uitbetaling</p>
-                </div>
-                <div class="stat-item">
-                    <h3>100%</h3>
-                    <p>Risico afgedekt</p>
-                </div>
-                <div class="stat-item">
-                    <h3>200+</h3>
-                    <p>Tevreden zorgprofessionals</p>
-                </div>
-                <div class="stat-item">
-                    <h3>€8M+</h3>
-                    <p>Gefactureerd volume</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="requirements">
-        <div class="container">
-            <h2>Voorwaarden voor factoring</h2>
-            <div class="requirements-grid">
-                <div class="requirement-card">
-                    <div class="requirement-icon">🏢</div>
-                    <h3>B2B Facturen</h3>
-                    <p>Facturen aan bedrijven, instellingen of overheid. Geen particuliere klanten.</p>
-                </div>
-                <div class="requirement-card">
-                    <div class="requirement-icon">✅</div>
-                    <h3>Afgeronde Prestatie</h3>
-                    <p>Werk moet geleverd zijn. Geen vooruitbetalingen of termijnfacturen.</p>
-                </div>
-                <div class="requirement-card">
-                    <div class="requirement-icon">🎯</div>
-                    <h3>Kredietwaardige Debiteuren</h3>
-                    <p>Uw klanten moeten financieel gezond zijn. Wij checken dit kosteloos.</p>
-                </div>
-                <div class="requirement-card">
-                    <div class="requirement-icon">📋</div>
-                    <h3>Nederlandse Entiteit</h3>
-                    <p>Uw bedrijf moet geregistreerd staan bij de Nederlandse KvK.</p>
-                </div>
-                <div class="requirement-card">
-                    <div class="requirement-icon">💶</div>
-                    <h3>Minimum Omzet</h3>
-                    <p>Vanaf €5.000 per maand. Geen maximum - we groeien mee met u.</p>
-                </div>
-                <div class="requirement-card">
-                    <div class="requirement-icon">📝</div>
-                    <h3>Goedgekeurde Facturen</h3>
-                    <p>Facturen moeten akkoord zijn bevonden door uw opdrachtgever.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>100% Betrouwbaar</h3>
+                    <p>Onderdeel van Team Connected - jarenlange ervaring in financiële dienstverlening voor de zorg.</p>
                 </div>
             </div>
         </div>
@@ -1256,159 +509,105 @@
 
     <section id="proces" class="process">
         <div class="container">
-            <h2>Zo eenvoudig werkt het</h2>
-            <p class="section-subtitle">Van aanvraag tot uitbetaling in 4 stappen</p>
+            <h2>Zo Werkt Het</h2>
             <div class="process-steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Aanmelding</h3>
-                    <p>Vul online formulier in. Binnen 2 uur eerste beoordeling en persoonlijk contact.</p>
+                    <h3>Kennismaking</h3>
+                    <p>Persoonlijk gesprek waarin we uw situatie bespreken en een maatwerk oplossing voorstellen.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Kredietcheck</h3>
-                    <p>Wij checken kosteloos de kredietwaardigheid van uw debiteur(en).</p>
+                    <h3>Contractering</h3>
+                    <p>Snelle en eenvoudige contractering. We regelen alles voor u en zorgen voor een soepele start.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Factuur Indienen</h3>
-                    <p>Upload factuur via ons platform. Binnen 4 uur beoordeling en goedkeuring.</p>
+                    <h3>Facturen Indienen</h3>
+                    <p>Stuur uw facturen naar ons. Simpel via email, portal of uw eigen boekhoudsysteem.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
                     <h3>Uitbetaling</h3>
-                    <p>Binnen 24 uur staat het bedrag op uw rekening. Wij regelen de rest.</p>
+                    <p>Binnen 24 uur ontvangt u 90% uitbetaald. Wij zorgen voor de incasso bij uw debiteuren.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="faq" class="faq">
+    <section class="stats">
         <div class="container">
-            <h2>Veelgestelde vragen</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Wat zijn de kosten van factoring?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Onze tarieven variëren van 2,2% tot 3,5% per factuur, afhankelijk van uw omzet en risicoprofiel. Geen opstartkosten, geen maandelijkse kosten, alleen betalen per gefactureerde factuur. Transparant en voorspelbaar.</p>
-                    </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>24 uur</h3>
+                    <p>Uitbetaling</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Hoe snel krijg ik mijn geld?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Na goedkeuring van uw factuur ontvangt u binnen 24 uur 90-100% van het factuurbedrag op uw rekening. Facturen ingediend voor 16:00 worden vaak nog dezelfde dag uitbetaald.</p>
-                    </div>
+                <div class="stat-item">
+                    <h3>90%</h3>
+                    <p>Direct Beschikbaar</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Welke facturen zijn geschikt?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>B2B facturen voor afgeronde prestaties aan kredietwaardige debiteuren. Denk aan ziekenhuizen, zorginstellingen, GGZ, gemeenten. Geen vooruitbetalingen of particuliere klanten.</p>
-                    </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Persoonlijk Contact</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Kan ik opzeggen wanneer ik wil?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Ja, onze overeenkomst is flexibel opzegbaar. U zit nergens aan vast en bepaalt zelf welke facturen u indient. Geen minimum aantal facturen of omzet vereist.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Wat gebeurt als mijn klant niet betaalt?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Wij nemen het volledige debiteurenrisico over. Door onze kredietverzekering bent u 100% verzekerd tegen wanbetaling en faillissement. U heeft er geen omkijken naar.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Merkt mijn klant dat ik factor?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Dat bepaalt u zelf. We bieden zowel openlijke factoring (klant weet het) als stille factoring (klant merkt niets). Bij openlijke factoring zijn de tarieven lager.</p>
-                    </div>
+                <div class="stat-item">
+                    <h3>0</h3>
+                    <p>Verborgen Kosten</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="cta-section">
+    <section id="contact" class="contact">
         <div class="container">
-            <h2>Start vandaag nog</h2>
-            <p>Neem contact op voor een vrijblijvend adviesgesprek</p>
-            
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="naam">Naam *</label>
-                            <input type="text" id="naam" name="naam" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-mail *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
+            <h2>Neem Contact Op</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contactgegevens</h3>
+                    <div class="contact-item">
+                        <strong>Email</strong>
+                        <a href="mailto:e.zuidema@teamconnected.nl">e.zuidema@teamconnected.nl</a>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="telefoon">Telefoon</label>
-                            <input type="tel" id="telefoon" name="telefoon">
-                        </div>
-                        <div class="form-group">
-                            <label for="bedrijf">Bedrijfsnaam / Praktijk</label>
-                            <input type="text" id="bedrijf" name="bedrijf">
-                        </div>
+                    <div class="contact-item">
+                        <strong>Adres</strong>
+                        <p>Team Connected<br>
+                        [Uw adres hier]<br>
+                        [Postcode] [Plaats]</p>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="omzet-contact">Maandelijkse omzet</label>
-                            <select id="omzet-contact" name="omzet-contact">
-                                <option value="">Selecteer...</option>
-                                <option value="5k-15k">€5.000 - €15.000</option>
-                                <option value="15k-30k">€15.000 - €30.000</option>
-                                <option value="30k-50k">€30.000 - €50.000</option>
-                                <option value="50k+">€50.000+</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="sector">Sector</label>
-                            <select id="sector" name="sector">
-                                <option value="">Selecteer...</option>
-                                <option value="fysiotherapie">Fysiotherapie</option>
-                                <option value="psychologie">Psychologie/GGZ</option>
-                                <option value="verpleging">Verpleging/Thuiszorg</option>
-                                <option value="consultancy">Zorgconsultancy</option>
-                                <option value="overig">Overig</option>
-                            </select>
-                        </div>
+                    <div class="contact-item">
+                        <strong>Openingstijden</strong>
+                        <p>Maandag t/m vrijdag: 08:00 - 17:00</p>
                     </div>
+                </div>
+
+                <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="contact">
+                    <p style="display: none;">
+                        <label>Don't fill this out: <input name="bot-field" /></label>
+                    </p>
+
                     <div class="form-group">
-                        <label for="bericht">Uw situatie</label>
-                        <textarea id="bericht" name="bericht" rows="4" placeholder="Vertel ons meer over uw factureringssituatie en wensen..."></textarea>
+                        <label for="name">Naam *</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
-                    <button type="submit" class="cta-button">Verstuur Aanvraag</button>
-                </form>
-            </div>
 
-            <div style="margin-top: 3rem; color: white;">
-                <p><strong>Direct contact:</strong></p>
-                <p style="margin: 0.5rem 0;">📞 068 - 303 8922</p>
-                <p style="margin: 0.5rem 0;">✉️ e.zuidema@teamconnected.nl</p>
-                <p style="margin: 0.5rem 0;">💬 WhatsApp: 068 - 303 8922</p>
-                <p style="margin: 0.5rem 0;">🌐 www.connectedfactoring.nl</p>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefoonnummer</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Bericht *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit">Verstuur Bericht</button>
+                </form>
             </div>
         </div>
     </section>
@@ -1417,816 +616,55 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Connected Factoring B.V.</h3>
-                    <p>Onderdeel van team connected</p>
-                    <p>Uw betrouwbare financiële partner in de zorg</p>
-                    <p style="margin-top: 1rem; font-style: italic;">"Een persoonlijk bureau dat meedenkt naar uw omstandigheden"</p>
+                    <h3>Connected Factoring</h3>
+                    <p>Onderdeel van Team Connected</p>
+                    <p>Specialisten in financiële dienstverlening voor de zorg</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Onze Diensten</h3>
-                    <p>• American Factoring</p>
-                    <p>• Volledig debiteurenbeheer</p>
-                    <p>• 100% kredietverzekering</p>
-                    <p>• Online factoringplatform</p>
-                    <p>• Persoonlijke accountmanager</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Voor Wie</h3>
-                    <p>• ZZP'ers in de zorg</p>
-                    <p>• Zorgpraktijken</p>
-                    <p>• Fysiotherapeuten</p>
-                    <p>• Psychologen/GGZ</p>
-                    <p>• Zorgconsultants</p>
+                    <h3>Team Connected Groep</h3>
+                    <a href="#">Team Connected</a>
+                    <a href="#">Flexhire</a>
+                    <a href="#">Zorglift</a>
+                    <a href="#">Connected Factoring</a>
                 </div>
                 <div class="footer-section">
                     <h3>Contact</h3>
-                    <p>📍 Lindberghstraat 22, 7903 BN Hoogeveen</p>
-                    <p>📞 068 - 303 8922</p>
-                    <p>✉️ e.zuidema@teamconnected.nl</p>
-                    <p>🌐 www.connectedfactoring.nl</p>
-                    <p>KvK: 97538590</p>
+                    <a href="mailto:e.zuidema@teamconnected.nl">e.zuidema@teamconnected.nl</a>
+                    <p>KvK: [nummer]</p>
+                    <p>BTW: [nummer]</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Connected Factoring B.V. - Onderdeel van team connected | 
-                <a href="#algemene-voorwaarden" style="color: #A196FF; text-decoration: none;">Algemene Voorwaarden</a> | 
-                <a href="#privacy" style="color: #A196FF; text-decoration: none;">Privacy</a> | 
-                <a href="#cookies" style="color: #A196FF; text-decoration: none;">Cookies</a> | 
-                <a href="#klachten" style="color: #A196FF; text-decoration: none;">Klachten</a> |
-                <a href="#" onclick="showCookieBanner(); return false;" style="color: #A196FF; text-decoration: none;">Cookie-instellingen</a>
-                </p>
+                <p>&copy; 2025 Connected Factoring B.V. - Onderdeel van Team Connected</p>
             </div>
         </div>
     </footer>
 
-    <!-- Legal Pages (Hidden by default) -->
-    <section id="algemene-voorwaarden" class="legal-section hidden">
-        <div class="container legal-content">
-            <a href="#" onclick="showMainSite(); return false;" class="legal-back">← Terug naar hoofdpagina</a>
-            
-            <h1>Algemene voorwaarden Connected Factoring B.V.</h1>
-            <p><strong>Versie 1.0 | Geldig vanaf: 1 januari 2026</strong></p>
-            
-            <h2>Artikel 1 - Definities</h2>
-            <p>In deze algemene voorwaarden wordt verstaan onder:</p>
-            <ol>
-                <li><strong>Connected Factoring:</strong> Connected Factoring B.V., gevestigd te Lindberghstraat 22, 7903 BN Hoogeveen, ingeschreven bij de Kamer van Koophandel onder nummer 97538590.</li>
-                <li><strong>Klant:</strong> de natuurlijke persoon of rechtspersoon die met Connected Factoring een factoringovereenkomst aangaat.</li>
-                <li><strong>Debiteur:</strong> de afnemer van de Klant aan wie de Klant facturen heeft uitgereikt.</li>
-                <li><strong>Factuur:</strong> de door de Klant aan de Debiteur uitgereikte factuur voor geleverde goederen of diensten.</li>
-                <li><strong>Vordering:</strong> de geldvordering van de Klant op de Debiteur die voortvloeit uit de Factuur.</li>
-                <li><strong>Factoringovereenkomst:</strong> de overeenkomst waarbij de Klant Vorderingen verkoopt aan Connected Factoring.</li>
-                <li><strong>Factoringvergoeding:</strong> het percentage van het factuurbedrag dat Connected Factoring in rekening brengt voor haar dienstverlening (5% van het factuurbedrag).</li>
-            </ol>
-
-            <h2>Artikel 2 - Toepasselijkheid</h2>
-            <ol>
-                <li>Deze algemene voorwaarden zijn van toepassing op alle aanbiedingen, offertes en overeenkomsten tussen Connected Factoring en de Klant.</li>
-                <li>Afwijkingen van deze voorwaarden zijn slechts geldig indien deze uitdrukkelijk schriftelijk door Connected Factoring zijn bevestigd.</li>
-                <li>De toepasselijkheid van algemene voorwaarden van de Klant wordt uitdrukkelijk van de hand gewezen.</li>
-            </ol>
-
-            <h2>Artikel 3 - De Factoringovereenkomst</h2>
-            <ol>
-                <li>De Factoringovereenkomst komt tot stand door ondertekening door beide partijen of door schriftelijke bevestiging van Connected Factoring.</li>
-                <li>De Factoringovereenkomst wordt aangegaan voor onbepaalde tijd.</li>
-                <li>De overeenkomst kan door beide partijen worden opgezegd met inachtneming van een opzegtermijn van één (1) maand.</li>
-                <li>Connected Factoring is gerechtigd de overeenkomst met onmiddellijke ingang te beëindigen indien de Klant zijn verplichtingen niet nakomt.</li>
-            </ol>
-
-            <h2>Artikel 4 - Uitbetaling en Vergoeding</h2>
-            <ol>
-                <li>Connected Factoring betaalt 100% van het factuurbedrag uit, verminderd met de Factoringvergoeding van 5%.</li>
-                <li>Uitbetaling vindt plaats binnen 24 uur na acceptatie van de Vordering op werkdagen.</li>
-                <li>Facturen die voor 16:00 uur worden ingediend en geaccepteerd, worden dezelfde werkdag uitbetaald.</li>
-            </ol>
-
-            <h2>Artikel 5 - Traditional Factoring - Regresrecht</h2>
-            <div class="legal-highlight">
-                <p><strong>Let op:</strong> Connected Factoring past Traditional Factoring toe, waarbij het debiteurenrisico bij de Klant blijft.</p>
-            </div>
-            <ol>
-                <li>Indien de Debiteur de Vordering niet binnen de overeengekomen betalingstermijn van 30 dagen voldoet, is Connected Factoring gerechtigd het volledige gefactureerde bedrag terug te vorderen van de Klant.</li>
-                <li>De Klant is verplicht het bedrag binnen 7 dagen na melding door Connected Factoring terug te betalen.</li>
-            </ol>
-
-            <h2>Artikel 6 - Klachten en Geschillen</h2>
-            <h3>6.1 Klachtenprocedure</h3>
-            <p>Klachten kunnen worden ingediend via:</p>
-            <ul>
-                <li>E-mail: e.zuidema@teamconnected.nl</li>
-                <li>Telefoon: 068 - 303 8922</li>
-                <li>Schriftelijk: Lindberghstraat 22, 7903 BN Hoogeveen</li>
-            </ul>
-            <p>Connected Factoring bevestigt ontvangst binnen 5 werkdagen en streeft ernaar de klacht binnen 6 weken af te handelen.</p>
-
-            <h3>6.2 Externe Geschillenbeslechting</h3>
-            <p>Indien de klacht niet naar tevredenheid is opgelost, kan de Klant zich wenden tot:</p>
-            <div class="legal-highlight">
-                <p><strong>Klachteninstituut Financiële Dienstverlening (Kifid)</strong><br>
-                Postbus 93257, 2509 AG Den Haag<br>
-                Telefoon: 070 - 333 8 999<br>
-                Website: www.kifid.nl</p>
-            </div>
-
-            <h2>Artikel 7 - Toepasselijk Recht</h2>
-            <p>Op alle overeenkomsten tussen Connected Factoring en de Klant is Nederlands recht van toepassing.</p>
-
-            <hr style="margin: 3rem 0;">
-            <p><strong>Connected Factoring B.V.</strong><br>
-            Lindberghstraat 22, 7903 BN Hoogeveen<br>
-            KvK: 97538590<br>
-            E-mail: e.zuidema@teamconnected.nl<br>
-            Telefoon: 068 - 303 8922</p>
-
-            <p><em>Versie 1.0 - Geldig vanaf: 1 januari 2026</em></p>
-            <p><em>Voor de volledige tekst van de Algemene Voorwaarden, neem contact met ons op.</em></p>
-        </div>
-    </section>
-
-    <section id="privacy" class="legal-section hidden">
-        <div class="container legal-content">
-            <a href="#" onclick="showMainSite(); return false;" class="legal-back">← Terug naar hoofdpagina</a>
-            
-            <h1>Privacy statement Connected Factoring B.V.</h1>
-            <p><strong>Versie 1.0 | Geldig vanaf: 1 januari 2026</strong></p>
-
-            <h2>1. Inleiding</h2>
-            <p>Connected Factoring B.V. hecht veel waarde aan de bescherming van uw persoonsgegevens. In dit Privacy Statement leggen wij uit welke persoonsgegevens wij verzamelen, waarom wij dit doen en welke rechten u heeft.</p>
-
-            <div class="legal-highlight">
-                <p><strong>Contactgegevens:</strong><br>
-                E-mail: e.zuidema@teamconnected.nl<br>
-                Telefoon: 068 - 303 8922<br>
-                Adres: Lindberghstraat 22, 7903 BN Hoogeveen</p>
-            </div>
-
-            <h2>2. Welke gegevens verzamelen wij?</h2>
-            <h3>2.1 Gegevens van klanten (factoringdiensten)</h3>
-            <ul>
-                <li>Voor- en achternaam, e-mailadres, telefoonnummer</li>
-                <li>Bedrijfsnaam en KvK-nummer</li>
-                <li>Bankrekeningnummer (IBAN)</li>
-                <li>Facturen en betalingsgegevens</li>
-                <li>Debiteureninformatie</li>
-            </ul>
-
-            <h3>2.2 Gegevens via de website</h3>
-            <ul>
-                <li>IP-adres, browsertype, bezochte pagina's</li>
-                <li>Vrijwillig verstrekte gegevens via formulieren</li>
-            </ul>
-
-            <h2>3. Waarom verzamelen wij deze gegevens?</h2>
-            <p>Wij verwerken uw persoonsgegevens voor:</p>
-            <ul>
-                <li>Uitvoering van de factoringovereenkomst</li>
-                <li>Wettelijke verplichtingen (fiscaal, Wwft)</li>
-                <li>Kredietbeoordeling en risico-analyse</li>
-                <li>Website verbetering en analyse</li>
-            </ul>
-
-            <h2>4. Hoe lang bewaren wij uw gegevens?</h2>
-            <table>
-                <tr>
-                    <th>Type gegevens</th>
-                    <th>Bewaartermijn</th>
-                </tr>
-                <tr>
-                    <td>Klantgegevens en contracten</td>
-                    <td>Duur van contract + 7 jaar</td>
-                </tr>
-                <tr>
-                    <td>Financiële administratie</td>
-                    <td>7 jaar (wettelijk verplicht)</td>
-                </tr>
-                <tr>
-                    <td>Prospects (geen klant)</td>
-                    <td>2 jaar na laatste contact</td>
-                </tr>
-                <tr>
-                    <td>Website analytics</td>
-                    <td>14 maanden</td>
-                </tr>
-            </table>
-
-            <h2>5. Uw rechten</h2>
-            <p>U heeft recht op:</p>
-            <ul>
-                <li><strong>Inzage:</strong> weten welke gegevens wij van u verwerken</li>
-                <li><strong>Rectificatie:</strong> onjuiste gegevens laten corrigeren</li>
-                <li><strong>Verwijdering:</strong> uw gegevens laten verwijderen</li>
-                <li><strong>Beperking:</strong> verwerking beperken</li>
-                <li><strong>Dataportabiliteit:</strong> gegevens in gangbaar formaat ontvangen</li>
-                <li><strong>Bezwaar:</strong> bezwaar maken tegen verwerking</li>
-            </ul>
-
-            <p>Verzoeken kunnen worden ingediend via e.zuidema@teamconnected.nl. Wij reageren binnen 1 maand.</p>
-
-            <h2>6. Cookies</h2>
-            <p>Onze website gebruikt functionele en analytische cookies. Zie ons <a href="#cookies" onclick="showLegalPage('cookies'); return false;">Cookie Statement</a> voor meer informatie.</p>
-
-            <h2>7. Klachten</h2>
-            <p>Heeft u een klacht? Neem contact op via e.zuidema@teamconnected.nl of dien een klacht in bij de <strong>Autoriteit Persoonsgegevens</strong> (www.autoriteitpersoonsgegevens.nl).</p>
-
-            <hr style="margin: 3rem 0;">
-            <p><strong>Connected Factoring B.V.</strong><br>
-            E-mail: e.zuidema@teamconnected.nl<br>
-            Telefoon: 068 - 303 8922<br>
-            Adres: Lindberghstraat 22, 7903 BN Hoogeveen<br>
-            KvK: 97538590</p>
-
-            <p><em>Laatste wijziging: 1 januari 2026</em></p>
-        </div>
-    </section>
-
-    <section id="cookies" class="legal-section hidden">
-        <div class="container legal-content">
-            <a href="#" onclick="showMainSite(); return false;" class="legal-back">← Terug naar hoofdpagina</a>
-            
-            <h1>Cookie statement Connected Factoring B.V.</h1>
-            <p><strong>Versie 1.0 | Geldig vanaf: 1 januari 2026</strong></p>
-
-            <h2>1. Wat zijn cookies?</h2>
-            <p>Cookies zijn kleine tekstbestanden die worden opgeslagen op uw apparaat wanneer u een website bezoekt. Ze helpen websites om uw voorkeuren te onthouden en de gebruikerservaring te verbeteren.</p>
-
-            <h2>2. Welke cookies gebruiken wij?</h2>
-
-            <h3>2.1 Noodzakelijke (functionele) cookies</h3>
-            <p>Deze cookies zijn essentieel voor het functioneren van de website.</p>
-            <table>
-                <tr>
-                    <th>Cookie naam</th>
-                    <th>Doel</th>
-                    <th>Bewaartermijn</th>
-                </tr>
-                <tr>
-                    <td>cookie_consent</td>
-                    <td>Onthoudt uw cookie voorkeuren</td>
-                    <td>12 maanden</td>
-                </tr>
-                <tr>
-                    <td>PHPSESSID</td>
-                    <td>Sessie cookie voor formulieren</td>
-                    <td>Sessie</td>
-                </tr>
-            </table>
-
-            <h3>2.2 Analytische cookies (Google Analytics 4)</h3>
-            <p>Deze cookies worden alleen geplaatst na uw toestemming.</p>
-            <table>
-                <tr>
-                    <th>Cookie naam</th>
-                    <th>Doel</th>
-                    <th>Bewaartermijn</th>
-                </tr>
-                <tr>
-                    <td>_ga</td>
-                    <td>Onderscheidt unieke gebruikers</td>
-                    <td>14 maanden</td>
-                </tr>
-                <tr>
-                    <td>_gid</td>
-                    <td>Onderscheidt unieke gebruikers</td>
-                    <td>24 uur</td>
-                </tr>
-            </table>
-
-            <div class="legal-highlight">
-                <p><strong>Privacy:</strong> Wij hebben IP-anonimisering ingeschakeld. Uw volledige IP-adres wordt niet opgeslagen.</p>
-            </div>
-
-            <h2>3. Cookies beheren</h2>
-            <p>U kunt uw cookie voorkeuren te allen tijde aanpassen:</p>
-            <ul>
-                <li>Via de <a href="#" onclick="showCookieBanner(); return false;">cookie-instellingen</a> onderaan onze website</li>
-                <li>Via uw browserinstellingen</li>
-            </ul>
-
-            <h2>4. Vragen?</h2>
-            <p>Heeft u vragen over ons gebruik van cookies? Neem contact op via e.zuidema@teamconnected.nl of 068 - 303 8922.</p>
-
-            <hr style="margin: 3rem 0;">
-            <p><em>Laatste update: 1 januari 2026</em></p>
-        </div>
-    </section>
-
-    <section id="klachten" class="legal-section hidden">
-        <div class="container legal-content">
-            <a href="#" onclick="showMainSite(); return false;" class="legal-back">← Terug naar hoofdpagina</a>
-            
-            <h1>Klachtenregeling Connected Factoring B.V.</h1>
-
-            <h2>1. Klacht indienen</h2>
-            <p>Heeft u een klacht over onze dienstverlening? Wij nemen uw klacht serieus en helpen u graag verder.</p>
-
-            <h3>Contact opnemen:</h3>
-            <div class="legal-highlight">
-                <p><strong>E-mail:</strong> e.zuidema@teamconnected.nl<br>
-                <strong>Telefoon:</strong> 068 - 303 8922<br>
-                <strong>Schriftelijk:</strong> Lindberghstraat 22, 7903 BN Hoogeveen</p>
-            </div>
-
-            <h2>2. Onze procedure</h2>
-            <ol>
-                <li><strong>Ontvangstbevestiging:</strong> Binnen 5 werkdagen bevestigen wij de ontvangst van uw klacht.</li>
-                <li><strong>Behandeling:</strong> Wij onderzoeken uw klacht zorgvuldig en streven ernaar deze binnen 6 weken af te handelen.</li>
-                <li><strong>Reactie:</strong> U ontvangt een schriftelijke reactie met uitleg en/of oplossing.</li>
-            </ol>
-
-            <h2>3. Niet tevreden met onze reactie?</h2>
-            <p>Als u niet tevreden bent met de afhandeling van uw klacht, kunt u zich wenden tot een externe geschilleninstantie:</p>
-
-            <div class="legal-highlight">
-                <h3>Klachteninstituut Financiële Dienstverlening (Kifid)</h3>
-                <p>
-                <strong>Postbus:</strong> 93257, 2509 AG Den Haag<br>
-                <strong>Telefoon:</strong> 070 - 333 8 999<br>
-                <strong>Website:</strong> <a href="https://www.kifid.nl" target="_blank">www.kifid.nl</a><br>
-                <strong>E-mail:</strong> consumenten@kifid.nl
-                </p>
-            </div>
-
-            <p><strong>Let op:</strong> U kunt een geschil alleen bij Kifid voorleggen nadat u eerst onze interne klachtenprocedure heeft doorlopen.</p>
-
-            <h2>4. Onze toezegging</h2>
-            <p>Connected Factoring streeft ernaar om alle klachten professioneel, snel en naar tevredenheid op te lossen. Uw feedback helpt ons onze dienstverlening te verbeteren.</p>
-
-            <hr style="margin: 3rem 0;">
-            <p><strong>Connected Factoring B.V.</strong><br>
-            Lindberghstraat 22, 7903 BN Hoogeveen<br>
-            KvK: 97538590</p>
-        </div>
-    </section>
-
-    <!-- Chat Widget -->
-    <div class="chat-widget" onclick="openChat()">
-        💬 Direct chatten
-    </div>
-
-    <!-- Cookie Banner -->
-    <div class="cookie-banner" id="cookieBanner">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                <strong>Deze website gebruikt cookies</strong><br>
-                Wij gebruiken functionele en analytische cookies om onze website te verbeteren. 
-                <a href="#cookies">Lees meer in ons Cookie Statement</a> en 
-                <a href="#privacy">Privacy Statement</a>.
-            </div>
-            <div class="cookie-buttons">
-                <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accepteren</button>
-                <button class="cookie-btn cookie-decline" onclick="declineCookies()">Alleen noodzakelijke</button>
-                <button class="cookie-btn cookie-settings" onclick="showCookieSettings()">Instellingen</button>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
             });
         });
 
-        // FAQ Toggle
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', function() {
-                const faqItem = this.parentElement;
-                const answer = faqItem.querySelector('.faq-answer');
-                const toggle = this.querySelector('.faq-toggle');
-                
-                faqItem.classList.toggle('active');
-                answer.classList.toggle('active');
-                
-                if (faqItem.classList.contains('active')) {
-                    toggle.textContent = '×';
-                } else {
-                    toggle.textContent = '+';
-                }
-            });
-        });
-
-        // Quickscan Form
-        document.getElementById('quickscanForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const omzet = document.getElementById('omzet').value;
-            const klanttype = document.getElementById('klanttype').value;
-            const betalingstermijn = document.getElementById('betalingstermijn').value;
-            const bedrijfsvorm = document.getElementById('bedrijfsvorm').value;
-            
-            let geschikt = true;
-            let aanbeveling = '';
-            let tarief = '';
-            
-            // Simple logic for demonstration
-            if (omzet === '5k-15k') {
-                tarief = '3,5%';
-                aanbeveling = 'Starter pakket';
-            } else if (omzet === '15k-30k' || omzet === '30k-50k') {
-                tarief = '2,8%';
-                aanbeveling = 'Professional pakket';
-            } else if (omzet === '50k+') {
-                tarief = '2,2%';
-                aanbeveling = 'Enterprise pakket';
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
             }
-            
-            if (klanttype === 'overig' && betalingstermijn === '30') {
-                geschikt = false;
-            }
-            
-            const resultDiv = document.getElementById('quickscanResult');
-            
-            if (geschikt) {
-                resultDiv.innerHTML = `
-                    <h3 style="color: #33123D; margin-bottom: 1rem;">✅ Factoring past perfect bij u!</h3>
-                    <p><strong>Aanbevolen pakket:</strong> ${aanbeveling}</p>
-                    <p><strong>Indicatief tarief:</strong> ${tarief} per factuur</p>
-                    <p><strong>Geschatte maandelijkse besparing tijd:</strong> 8-12 uur</p>
-                    <p style="margin-top: 1rem;">
-                        <a href="#contact" class="cta-button">Direct Offerte Aanvragen</a>
-                    </p>
-                `;
-            } else {
-                resultDiv.innerHTML = `
-                    <h3 style="color: #ff6b35; margin-bottom: 1rem;">⚠️ Factoring is mogelijk geschikt</h3>
-                    <p>Op basis van uw antwoorden adviseren wij een persoonlijk gesprek om de mogelijkheden te bespreken.</p>
-                    <p style="margin-top: 1rem;">
-                        <a href="#contact" class="cta-button">Gesprek Inplannen</a>
-                    </p>
-                `;
-            }
-            
-            resultDiv.style.display = 'block';
-        });
-
-        // Contact Form
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Bedankt voor uw aanvraag! Wij nemen binnen 2 uur contact met u op voor een persoonlijk gesprek.');
-            this.reset();
-        });
-
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
-        document.querySelectorAll('.feature-card, .step, .stat-item, .review-card, .requirement-card, .pricing-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // Stats counter animation
-        function animateStats() {
-            const stats = document.querySelectorAll('.stat-item h3');
-            stats.forEach(stat => {
-                const target = stat.textContent;
-                const isNumber = target.match(/\d+/);
-                if (isNumber) {
-                    const number = parseInt(isNumber[0]);
-                    const suffix = target.replace(number, '');
-                    let current = 0;
-                    const increment = number / 50;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= number) {
-                            stat.textContent = number + suffix;
-                            clearInterval(timer);
-                        } else {
-                            stat.textContent = Math.floor(current) + suffix;
-                        }
-                    }, 30);
-                }
-            });
-        }
-
-        // Trigger stats animation when stats section is visible
-        const statsSection = document.querySelector('.stats');
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateStats();
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        });
-        statsObserver.observe(statsSection);
-
-        // Chat widget
-        function openChat() {
-            window.open('https://wa.me/31683038922?text=Hallo, ik heb een vraag over factoring', '_blank');
-        }
-
-        // Cookie Banner Functions
-        function checkCookieConsent() {
-            const consent = localStorage.getItem('cookieConsent');
-            if (!consent) {
-                setTimeout(() => {
-                    document.getElementById('cookieBanner').classList.add('show');
-                }, 1000);
-            } else if (consent === 'accepted') {
-                loadAnalytics();
-            }
-        }
-
-        function acceptCookies() {
-            localStorage.setItem('cookieConsent', 'accepted');
-            document.getElementById('cookieBanner').classList.remove('show');
-            loadAnalytics();
-        }
-
-        function declineCookies() {
-            localStorage.setItem('cookieConsent', 'declined');
-            document.getElementById('cookieBanner').classList.remove('show');
-        }
-
-        function showCookieBanner() {
-            document.getElementById('cookieBanner').classList.add('show');
-        }
-
-        function showCookieSettings() {
-            alert('Cookie instellingen:\n\n✓ Functionele cookies (altijd aan)\n□ Analytische cookies (Google Analytics)\n\nOm uw voorkeuren te wijzigen, neem contact op of gebruik de accepteer/weiger knoppen.');
-        }
-
-        function loadAnalytics() {
-            // Hier zou Google Analytics geladen worden
-            // Voor nu een placeholder:
-            console.log('Analytics cookies geaccepteerd - Google Analytics zou hier worden geladen');
-            
-            // In productie zou hier de Google Analytics code komen:
-            // window.dataLayer = window.dataLayer || [];
-            // function gtag(){dataLayer.push(arguments);}
-            // gtag('js', new Date());
-            // gtag('config', 'G-XXXXXXXXXX');
-        }
-
-        // Check cookie consent on page load
-        checkCookieConsent();
-
-        // Page Navigation Functions
-        function showLegalPage(pageId) {
-            // Hide main content
-            document.querySelectorAll('section:not(.legal-section)').forEach(section => {
-                section.style.display = 'none';
-            });
-            document.querySelector('header').style.display = 'none';
-            document.querySelector('footer').style.display = 'none';
-            document.querySelector('.chat-widget').style.display = 'none';
-            
-            // Hide all legal sections
-            document.querySelectorAll('.legal-section').forEach(section => {
-                section.classList.add('hidden');
-            });
-            
-            // Show requested legal page
-            const legalSection = document.getElementById(pageId);
-            if (legalSection) {
-                legalSection.classList.remove('hidden');
-                window.scrollTo(0, 0);
-            }
-        }
-
-        function showMainSite() {
-            // Show main content
-            document.querySelectorAll('section:not(.legal-section)').forEach(section => {
-                section.style.display = 'block';
-            });
-            document.querySelector('header').style.display = 'block';
-            document.querySelector('footer').style.display = 'block';
-            document.querySelector('.chat-widget').style.display = 'block';
-            
-            // Hide all legal sections
-            document.querySelectorAll('.legal-section').forEach(section => {
-                section.classList.add('hidden');
-            });
-            
-            window.scrollTo(0, 0);
-        }
-
-        // Update footer links to use the navigation function
-        document.addEventListener('DOMContentLoaded', function() {
-            const footerLinks = document.querySelectorAll('.footer-bottom a[href^="#"]');
-            footerLinks.forEach(link => {
-                if (link.getAttribute('onclick')) return; // Skip cookie settings link
-                
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const pageId = this.getAttribute('href').substring(1);
-                    if (pageId && pageId !== '') {
-                        showLegalPage(pageId);
-                    }
-                });
-            });
         });
     </script>
 </body>
 </html>
-
-    <section id="tarieven" class="pricing">
-        <div class="container">
-            <h2>Transparante tarieven</h2>
-            <p>Geen verborgen kosten, duidelijke voorwaarden</p>
-            
-            <div class="pricing-cards">
-                <div class="pricing-card">
-                    <h3>Starter</h3>
-                    <div class="price">3,5%</div>
-                    <div class="price-note">per factuur</div>
-                    <ul class="features-list">
-                        <li>Omzet tot €25.000/maand</li>
-                        <li>90% direct uitbetaald</li>
-                        <li>Basis debiteurenbeheer</li>
-                        <li>Online portal</li>
-                        <li>Email support</li>
-                    </ul>
-                    <a href="#contact" class="cta-button">Aanvragen</a>
-                </div>
-                
-                <div class="pricing-card featured">
-                    <h3>Professional</h3>
-                    <div class="price">2,8%</div>
-                    <div class="price-note">per factuur</div>
-                    <ul class="features-list">
-                        <li>Omzet €25.000-€75.000/maand</li>
-                        <li>95% direct uitbetaald</li>
-                        <li>Volledig debiteurenbeheer</li>
-                        <li>Persoonlijke accountmanager</li>
-                        <li>Telefoon support</li>
-                        <li>Kredietverzekering</li>
-                    </ul>
-                    <a href="#contact" class="cta-button">Meest Gekozen</a>
-                </div>
-                
-                <div class="pricing-card">
-                    <h3>Enterprise</h3>
-                    <div class="price">2,2%</div>
-                    <div class="price-note">per factuur</div>
-                    <ul class="features-list">
-                        <li>Omzet boven €75.000/maand</li>
-                        <li>100% direct uitbetaald</li>
-                        <li>Premium debiteurenbeheer</li>
-                        <li>Dedicated accountmanager</li>
-                        <li>24/7 support</li>
-                        <li>Maatwerk oplossingen</li>
-                    </ul>
-                    <a href="#contact" class="cta-button">Op Maat</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="voordelen" class="features">
-        <div class="container">
-            <h2>Waarom Connected Factoring?</h2>
-            <p class="section-subtitle">Uw betrouwbare financiële partner in de zorg</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Snelle Uitbetaling</h3>
-                    <p>Binnen 24 uur na goedkeuring staat uw geld op de rekening. Meer tijd voor wat echt belangrijk is: de zorg.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏥</div>
-                    <h3>Specialisatie in Zorg</h3>
-                    <p>Onderdeel van team connected. We kennen de zorgsector en begrijpen uw uitdagingen als zorgprofessional.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>100% Risico Afgedekt</h3>
-                    <p>Wij nemen het debiteurenrisico over en zorgen voor volledige verzekering tegen wanbetaling en faillissement.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🤝</div>
-                    <h3>Persoonlijke Benadering</h3>
-                    <p>Een persoonlijk bureau dat meedenkt naar uw omstandigheden. Echte betrokkenheid bij uw uitdagingen.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Flexibel & Eenvoudig</h3>
-                    <p>U bepaalt zelf welke facturen u laat voorfinancieren. Volledig online platform met persoonlijk contact.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Transparante Kosten</h3>
-                    <p>Duidelijke tarieven zonder verborgen kosten. Alleen betalen voor wat u gebruikt - geen minimum vereisten.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="team" class="team">
-        <div class="container">
-            <h2>Ons team</h2>
-            <div class="team-intro">
-                <p><strong>Van zorgverleners tot zorgondernemers.</strong> Edward en Eddie hebben Team Connected van de grond af opgebouwd. Met jarenlange ervaring in de zorg én als ondernemer, begrijpen zij als geen ander de uitdagingen waar zorgprofessionals tegenaan lopen. Connected Factoring is ontstaan vanuit een concrete behoefte: ZZP'ers in de zorg die worstelen met cashflow en lange betaaltermijnen. Wij helpen ondernemers groeien.</p>
-            </div>
-
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="team-photo">
-                        👤
-                    </div>
-                    <div class="team-info">
-                        <div class="team-name">Edward Zuidema</div>
-                        <div class="team-role">Directeur | Zakelijke Strategie</div>
-                        <div class="team-bio">
-                            Edward begon zijn carrière in de zorg en groeide door naar zorgondernemer. Met een scherp oog voor zakelijke kansen heeft hij Team Connected uitgebouwd tot een volwaardige speler in de uitzend- en bemiddelwereld. Bij Connected Factoring legt Edward de focus op sterke partnerships en duurzame groei.
-                        </div>
-                        <div class="team-responsibilities">
-                            <h4>Verantwoordelijk voor:</h4>
-                            <ul>
-                                <li>Contract management & juridische zaken</li>
-                                <li>Acquisitie nieuwe opdrachtgevers</li>
-                                <li>Relatiebeheer bestaande klanten</li>
-                                <li>Strategische partnerships</li>
-                                <li>Financiële planning</li>
-                            </ul>
-                        </div>
-                        <div class="team-contact">
-                            📧 <a href="mailto:e.zuidema@teamconnected.nl">e.zuidema@teamconnected.nl</a><br>
-                            📞 <a href="tel:0683038922">068 - 303 8922</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="team-member">
-                    <div class="team-photo">
-                        👤
-                    </div>
-                    <div class="team-info">
-                        <div class="team-name">Eddie Zuidema</div>
-                        <div class="team-role">Directeur | Innovatie & Zorginhoud</div>
-                        <div class="team-bio">
-                            Eddie combineert zijn zorgachtergrond met een passie voor innovatie. Waar anderen alleen bemiddelen, denkt Eddie mee over de zorginhoudelijke kant - dé onderscheidende factor van Team Connected. Hij zorgt ervoor dat Connected Factoring niet alleen financiering biedt, maar ook begrijpt wat zorgondernemers nodig hebben om te groeien.
-                        </div>
-                        <div class="team-responsibilities">
-                            <h4>Verantwoordelijk voor:</h4>
-                            <ul>
-                                <li>Recruitment & matching professionals</li>
-                                <li>Zorginhoudelijke advisering</li>
-                                <li>Innovatie & productontwikkeling</li>
-                                <li>Groeistrategieën voor klanten</li>
-                                <li>Kwaliteitsborging dienstverlening</li>
-                            </ul>
-                        </div>
-                        <div class="team-contact">
-                            📧 <a href="mailto:e.zuidema@teamconnected.nl">e.zuidema@teamconnected.nl</a><br>
-                            📞 <a href="tel:0683038922">068 - 303 8922</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: #F8F9FA; border-radius: 20px;">
-                <h3 style="color: #33123D; margin-bottom: 1rem;">Bewezen Track Record</h3>
-                <p style="color: #666; font-size: 1.1rem; line-height: 1.8;">
-                    Al meer dan een jaar helpen wij ZZP'ers in de zorg met factoring. Wat begon als dienstverlening voor ons eigen netwerk, is uitgegroeid tot een volwaardig factoringbedrijf. Onze methodiek werkt: van cashflow problemen naar stabiele groei. Menig zorgondernemer is dankzij Connected Factoring gegroeid en heeft meer tijd voor wat echt belangrijk is - goede zorg leveren.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="reviews">
-        <div class="container">
-            <h2>Wat zeggen onze klanten</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">"Als fysiotherapeut had ik vaak cashflow problemen door late betalingen van ziekenhuizen. Connected Factoring heeft dit opgelost. Binnen 24 uur mijn geld op de rekening!"</div>
-                    <div class="review-author">Sarah van der Berg</div>
-                    <div class="review-company">FysioVitaal B.V.</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">"Persoonlijke benadering en echt begrip voor de zorg. Ze denken mee en zijn altijd bereikbaar. Factoring heeft mijn praktijk veel rust gegeven."</div>
-                    <div class="review-author">Dr. Mark Jansen</div>
-                    <div class="review-company">Psychologenpraktijk De Brug</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">"Transparante tarieven en geen verborgen kosten. Het online platform is gebruiksvriendelijk en ik heb altijd real-time inzicht in mijn financiën."</div>
-                    <div class="review-author">Linda Bakker</div>
-                    <div class="review-company">ZorgConsult Plus</div>
-                </div>
