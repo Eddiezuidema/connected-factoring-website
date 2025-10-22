@@ -1,29 +1,67 @@
+# Netlify Configuration voor Connected Factoring B.V.
+
 [build]
   publish = "."
 
+[build.environment]
+  NODE_VERSION = "18"
+
+# Netlify Forms Configuration
+[forms]
+  # Forms enabled - emails gaan naar e.zuidema@teamconnected.nl
+
+# Redirect www to non-www (moet eerst!)
+[[redirects]]
+  from = "https://connectedfactoring.nl/*"
+  to = "https://www.connectedfactoring.nl/:splat"
+  status = 301
+  force = true
+
+# SPA fallback
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-[forms]
-
+# Security Headers
 [[headers]]
   for = "/*"
   [headers.values]
+    # Prevent clickjacking
     X-Frame-Options = "DENY"
+    
+    # XSS Protection
+    X-XSS-Protection = "1; mode=block"
+    
+    # Prevent MIME sniffing
     X-Content-Type-Options = "nosniff"
-```
+    
+    # Referrer Policy
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Content Security Policy
+    Content-Security-Policy = "default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline';"
 
-4. Klik onderaan: **"Commit new file"**
+# Cache Control voor JavaScript
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
 
----
+# Cache Control voor CSS
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
 
-### **Bestand 3: _redirects**
+# Cache Control voor JPG images
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
 
-**In GitHub:**
-1. Weer: **"Add file"** → **"Create new file"**  
-2. Naam: `_redirects`
-3. Plak dit:
-```
-/*    /index.html   200
+# Cache Control voor PNG images
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
